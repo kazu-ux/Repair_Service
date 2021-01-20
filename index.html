@@ -4,31 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>修理お見積り算出</title>
   <link rel="stylesheet" href="css\style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="js\script.js"></script>
 </head>
 
 <body>
-  <select>
-    <option value="select">選択してください</option>
-    <option value="a01">要素1</option>
-    <option value="a02">要素2</option>
-    <option value="a03">要素3</option>
-  </select>
-  
-  <section id="a01">
-  要素１
-  </section>
-  
-  <section id="a02">
-  要素2
-  </section>
-  
-  <section id="a03">
-  要素3
-  </section>
+  <p>・デバイス名をお選び下さい。</p>
+  <form name="form1" action="">
+    <select id="Select1" onchange="selectboxChange()">
+      <option value="test">選択してください</option>
+      <option value="a01">G700/G700s</option>
+      <option value="a02">G13/G13r</option>
+      <option value="a03">スリムブレード</option>
+    </select>
+  </form>
+
+  <div id="g700_g700s">
+    <p>ご希望の修理箇所をお選び下さい。</p>
+    <input type="checkbox" name="q1" id="" value="左クリックスイッチ">左クリックスイッチ
+  </div>
+
+
 </body>
 
 </html>
