@@ -1,5 +1,6 @@
-/*
-#g700_g700s {
-  display: none;
+.total_value{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 40px;
 }
-*/

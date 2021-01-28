@@ -12,19 +12,30 @@
 <body>
   <p>・デバイス名をお選び下さい。</p>
   <form name="form1" action="">
-    <select id="Select1" onchange="selectboxChange()">
-      <option value="test">選択してください</option>
-      <option value="a01">G700/G700s</option>
-      <option value="a02">G13/G13r</option>
+    <select name="select1" onchange="selectboxChange()">
+      <option id="test">選択してください</option>
+      <option value="g700">G700/G700s</option>
+      <option value="g13">G13/G13r</option>
       <option value="a03">スリムブレード</option>
     </select>
   </form>
 
-  <div id="g700_g700s">
+  <div id="g700" name="checkbox" class="checkbox">
     <p>ご希望の修理箇所をお選び下さい。</p>
-    <input type="checkbox" name="q1" id="" value="左クリックスイッチ">左クリックスイッチ
+    <form name="form2" onclick="checkboxChange()">
+      <input type="checkbox" id="" name="repair_place" value="300">左クリックスイッチ+300円
+      <input type="checkbox" id="" name="repair_place" value="400">右クリックスイッチ+400円
+      <input type="checkbox" id="" name="repair_place" value="500">ホイールクリックスイッチ+500円
+    </form>
+    <div class="total_value">
+      <p id="total_value">合計金額</p>
+      <span id="total_id"></span>
+    </div>
   </div>
-
+  <div id="g13" name="checkbox" class="checkbox">
+    <p>ご希望の修理箇所をお選び下さい。</p>
+    <input type="checkbox" id="" value="ジョイスティック交換">ジョイスティック交換
+  </div>
 
 </body>
 
