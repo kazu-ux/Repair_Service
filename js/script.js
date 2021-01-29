@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   remove();
 });
 
+//セレクトボックスの操作
 const selectboxChange = () => {
 
   //選択されたときに、selectタグ要素を取得する
@@ -17,11 +18,15 @@ const selectboxChange = () => {
 
   //選択された選択肢が上から何番目かを数字で取得する
   const selected_num = select1.selectedIndex;
-  //選択された選択肢のvalueを文字列で取得する
-  const selected_value = select1.options[selected_num].value;
-  console.log(selected_value);
+  console.log(selected_num)
+  //選択された選択肢のidを文字列で取得する
+  const selected_id = select1.options[selected_num].id;
+  if (selected_id == "default") { return };
+  console.log(selected_id);
+  //セレクトボックスが変更された際に、表示していたチェックボックスを消す
   remove();
-  document.getElementById(selected_value).style.display = ""
+  //セレクトボックスで選択された機種の修理内容を表示する
+  document.getElementById(selected_id).style.display = ""
 
   console.log("change")
 };
