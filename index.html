@@ -12,27 +12,37 @@
 <body>
   <p>・デバイス名をお選び下さい。</p>
   <form name="form1" action="">
-    <select name="select1" onchange="selectboxChange()">
-      <option id="default">選択してください</option>
-      <option id="g700" value="1400">G700/G700s</option>
-      <option id="g13">G13/G13r</option>
-      <option id="a03">スリムブレード</option>
+    <select name="deviceName" onchange="displayChangeCheckbox(this.value)">
+      <option id="default" value="default">選択してください</option>
+      <option id="g700" value="g700">G700/G700s</option>
+      <option id="g13" value="g13">G13/G13r</option>
+      <option id="a03" value="slimbraid">スリムブレード</option>
     </select>
   </form>
-
-  <div id="G700" name="checkbox" class="checkbox">
-    <p>ご希望の修理箇所をお選び下さい。</p>
-    <form name="form2">
-      <input type="checkbox" id="" name="repair_place" value="300" onclick="checkboxChange()">左クリックスイッチ+300円
-      <input type="checkbox" id="" name="repair_place" value="400" onclick="checkboxChange()">右クリックスイッチ+400円
-      <input type="checkbox" id="" name="repair_place" value="500" onclick="checkboxChange()">ホイールクリックスイッチ+500円
-    </form>
-    <div class="total_value">
-      <p id="total_value">合計金額</p>
-      <span id="total_id"></span>
+  <div class="f-container">
+    <div>
+      <p>即決価格（技術料）　</p>
+      <p>修理料金　</p>
+      <p>送料　</p>
+      <p>合計金額　</p>
+    </div>
+    <div>
+      <p id="sokketu_price">0円</p>
+      <p id="repair_price">0円</p>
+      <p id="shipping">0円</p>
+      <p id="total_price">0円</p>
     </div>
   </div>
-  <div id="g13" name="checkbox" class="checkbox">
+
+  <div id="g700_repair" class="checkbox">
+    <p>ご希望の修理箇所をお選び下さい。</p>
+    <form name="form2">
+      <input type="checkbox" id="" name="repair_price" value="300" onclick="checkboxChange()">左クリックスイッチ+300円
+      <input type="checkbox" id="" name="repair_price" value="400" onclick="checkboxChange()">右クリックスイッチ+400円
+      <input type="checkbox" id="" name="repair_price" value="500" onclick="checkboxChange()">ホイールクリックスイッチ+500円
+    </form>
+  </div>
+  <div id="g13_repair" class="checkbox">
     <p>ご希望の修理箇所をお選び下さい。</p>
     <input type="checkbox" id="" value="ジョイスティック交換">ジョイスティック交換
   </div>
