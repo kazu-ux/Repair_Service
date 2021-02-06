@@ -11,12 +11,12 @@
 
 <body>
   <p>・デバイス名をお選び下さい。</p>
-  <form name="form1" action="">
-    <select name="deviceName" onchange="displayChangeCheckbox(this.value)">
+  <form name="deviceForm">
+    <select name="deviceSelect" onchange="displayChangeCheckbox()">
       <option id="default" value="default">選択してください</option>
-      <option id="g700" value="g700">G700/G700s</option>
-      <option id="g13" value="g13">G13/G13r</option>
-      <option id="a03" value="slimbraid">スリムブレード</option>
+      <option id="g700" value="1400">G700/G700s</option>
+      <option id="g13" value="1900">G13/G13r</option>
+      <option id="slimblade" value="1900">スリムブレード</option>
     </select>
   </form>
   <div class="f-container">
@@ -36,10 +36,11 @@
 
   <div id="g700_repair" class="checkbox">
     <p>ご希望の修理箇所をお選び下さい。</p>
+    <p>---スイッチ交換(1個につき+300円)---</p>
     <form name="form2">
-      <input type="checkbox" id="" name="repair_price" value="300" onclick="checkboxChange()">左クリックスイッチ+300円
-      <input type="checkbox" id="" name="repair_price" value="400" onclick="checkboxChange()">右クリックスイッチ+400円
-      <input type="checkbox" id="" name="repair_price" value="500" onclick="checkboxChange()">ホイールクリックスイッチ+500円
+      <input type="checkbox" id="" name="repair_price" value="300" onclick="checkboxChange()">左クリックスイッチ
+      <input type="checkbox" id="" name="repair_price" value="300" onclick="checkboxChange()">右クリックスイッチ
+      <input type="checkbox" id="" name="repair_price" value="300" onclick="checkboxChange()">ホイールクリックスイッチ
     </form>
   </div>
   <div id="g13_repair" class="checkbox">

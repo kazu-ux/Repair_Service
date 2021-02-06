@@ -11,22 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
   removeCheckboxEle();
 });
 
-//即決価格を取得する関数
-const get_sokketu = () => {
-  //選択されたときに、selectタグ要素を取得する
-  const select1 = document.form1.deviceName;
-  //選択された選択肢が上から何番目かを数字で取得する
-  const selected_num = select1.selectedIndex;
-  console.log("上から" + selected_num + "番目")
-  //選択された選択肢のvalueを文字列で取得する
-  const selected_value = select1.options[selected_num].value;
-  return selected_value;
-}
+//選択したデバイス名、または即決価格を取得する関数
+const get_select = (element) => {
+  const device_select_options = deviceForm.deviceSelect.options;
+  console.log(device_select_options);
+  if (element == "option_id") {
+    return device_select_options[device_select_options.selectedIndex].id;
+  }
+  else {
+    return device_select_options[device_select_options.selectedIndex].value;
+  };
+};
 
 //選んだセレクトボックスによってチェックボックスの表示・非表示を切り替える
-const displayChangeCheckbox = (device_name) => {
+const displayChangeCheckbox = () => {
   //セレクトボックスが変更された際に、表示していたチェックボックスを消す
   removeCheckboxEle();
+  const device_name = get_select("option_id");
   //「選択して下さい」を選んだ場合は、何もしない
   if (device_name == "default") { return };
   //セレクトボックスで選択された機種の修理内容を表示する
@@ -37,11 +38,12 @@ const displayChangeCheckbox = (device_name) => {
 const checkboxChange = () => {
   //送料は定数
   const SHIPPING = Number("520");
+  const sokketu_price = get_select("option_value");
   //はじめから配列に即決価格と送料を入れておく
-  let elementArr = [Number(get_sokketu()), SHIPPING];
+  let elementArr = [Number(sokketu_price), SHIPPING];
   //チェックが入ったボックスをforeachで総当り
-  document.getElementsByName("repair_price").forEach(test => {
-    test.checked ? elementArr.push(Number(test.value)) : false;
+  document.getElementsByName("repair_price").forEach(input => {
+    input.checked ? elementArr.push(Number(input.value)) : false;
   });
   //配列内の要素数を数えて、0個なら0を入れ、1個以上なら合計金額を出す関数へ送る
   elementArr.length ? total(elementArr) : elementArr.push(Number(0));
